@@ -20,10 +20,6 @@ return {
       "hrsh7th/cmp-nvim-lsp",
 
       "lukas-reineke/lsp-format.nvim",
-      "folke/neodev.nvim",
-
-      "mfussenegger/nvim-dap",
-      "jay-babu/mason-nvim-dap.nvim",
     },
 
     config = function()
@@ -43,8 +39,6 @@ return {
       local mlsp = require("mason-lspconfig")
       local lspconfig = require("lspconfig")
 
-      require("neodev").setup({})
-
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       mlsp.setup()
@@ -57,23 +51,6 @@ return {
             on_attach = attach
           })
         end,
-
-        ["lua_ls"] = function()
-          lspconfig.lua_ls.setup({
-            settings = {
-              Lua = {
-                workspace = {
-                  checkThirdParty = false,
-                },
-                completion = {
-                  callSnippet = "Replace"
-                },
-              },
-            },
-            capabilities = capabilities,
-            on_attach = attach,
-          })
-        end,
       })
 
       require("lsp_lines").setup()
@@ -81,8 +58,6 @@ return {
       vim.diagnostic.config({
         virtual_text = false,
       })
-
-      require("mason-nvim-dap").setup({})
     end,
   },
 
