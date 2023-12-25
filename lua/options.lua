@@ -11,8 +11,6 @@ local options = {
   expandtab = true,
 
   scrolloff = 8,
-
-  clipboard = "unnamedplus",
 }
 
 local globals = {

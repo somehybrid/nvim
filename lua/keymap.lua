@@ -54,14 +54,14 @@ local keymaps = {
         },
       },
 
-      j = {
+      k = {
         'v:count ? "k" : "gk"',
         opts = {
           expr = true,
           desc = "Move up"
         },
       },
-      k = {
+      j = {
         'v:count ? "j" : "gj"',
         opts = {
           expr = true,
@@ -72,14 +72,14 @@ local keymaps = {
   },
 
   v = {
-    j = {
+    k = {
       'v:count ? "k" : "gk"',
       opts = {
         expr = true,
         desc = "Move up"
       },
     },
-    k = {
+    j = {
       'v:count ? "j" : "gj"',
       opts = {
         expr = true,
