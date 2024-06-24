@@ -11,6 +11,7 @@ local options = {
   expandtab = true,
 
   scrolloff = 8,
+  swapfile = false,
 }
 
 local globals = {
@@ -18,3 +19,12 @@ local globals = {
 }
 
 utils.load_options(options, globals)
+
+vim.api.nvim_create_autocmd(
+  {"BufRead"}, {
+    pattern = "*.rs",
+    callback = function()
+      vim.api.nvim_set_option_value("tags", "./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi", { scope = "local" })
+		end
+  }
+)

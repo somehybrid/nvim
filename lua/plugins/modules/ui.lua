@@ -11,7 +11,7 @@ return {
     {
         "tamton-aquib/staline.nvim",
         dependencies = "nvim-tree/nvim-web-devicons",
-        event = { "User", "BufNewFile", "BufReadPost", },
+        lazy = false,
 
         keys = {
             { "<leader>bn", "<cmd>ene<CR>", desc = "New buffer", },
@@ -107,12 +107,14 @@ return {
 
     {
         "lukas-reineke/indent-blankline.nvim",
-        event = { "BufReadPost", "BufNewFile", },
+        main = "ibl",
+        event = "BufEnter",
         opts = {
-            char = "│",
-            filetype_exclude = { "help", "alpha", "dashboard", "Trouble", "lazy", "mason" },
-            show_trailing_blankline_indent = false,
+            indent = { char = "│", },
         },
+        config = function()
+          require("ibl").setup()
+        end,
     },
 
     {

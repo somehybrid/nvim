@@ -6,8 +6,6 @@ return {
 
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
-            "ray-x/cmp-treesitter",
-            "hrsh7th/cmp-path",
             "saadparwaiz1/cmp_luasnip",
 
             {
@@ -50,10 +48,7 @@ return {
                 }),
                 sources = cmp.config.sources({
                     { name = "nvim_lsp",   priority = 1000, },
-                    { name = "treesitter", priority = 1000, },
-                    { name = "buffer",     priority = 800, },
-                    { name = "path",       priority = 600, },
-                    { name = "luasnip",    priority = 400, },
+                    { name = "luasnip",    priority = 500, },
                 }),
                 formatting = {
                     format = function(_, item)
