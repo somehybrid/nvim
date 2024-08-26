@@ -21,10 +21,12 @@ local globals = {
 utils.load_options(options, globals)
 
 vim.api.nvim_create_autocmd(
-  {"BufRead"}, {
+  {"BufRead", "BufWritePost"}, {
     pattern = "*.rs",
     callback = function()
+      io.popen("rusty-tags vi --quiet --start-dir=" .. vim.fn.getcwd())
       vim.api.nvim_set_option_value("tags", "./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi", { scope = "local" })
 		end
   }
 )
+
