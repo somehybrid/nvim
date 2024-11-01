@@ -68,4 +68,17 @@ return {
             })
         end,
     },
+
+    {
+        "supermaven-inc/supermaven-nvim",
+        event = { "BufRead", "BufNewFile", },
+
+        config = function()
+          require("supermaven-nvim").setup({
+              keymaps = {
+                  accept_suggestion = "<C-c>"
+              }
+          })
+        end,
+    },
 }
